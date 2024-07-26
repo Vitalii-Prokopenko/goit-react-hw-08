@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchContacts } from "./redux/contactsOps";
+import { selectIsLoading, selectError } from "./redux/selectors";
+import { selectFilteredContacts } from "./redux/contactsSlice";
+import "./App.css";
+import ContactForm from "./components/contactform/ContactForm";
+import SearchBox from "./components/searchbox/SearchBox";
+import ContactList from "./components/contactlist/ContactList";
+import Loader from "./components/loader/Loader";
+import ErrorMessage from "./components/errormessage/ErrorMessage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const contacts = useSelector(selectFilteredContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <h1>Phonebook</h1>
+      <p>Number of contacts: {contacts.length}</p>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          columnGap: "10px",
+          width: "100%",
+        }}
+      >
+        <ContactForm />
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}>
+          <SearchBox />
+          {isLoading && <Loader />}
+          {error && <ErrorMessage />}
+          {contacts.length > 0 && <ContactList style={{ width: "100%" }} />}
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
