@@ -1,25 +1,28 @@
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations";
+import { register } from "../../redux/auth/operations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import css from "./contactform.module.css";
+import css from "./registrationform.module.css";
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too short!")
-    .max(50, "Too long!")
+    .max(10, "Too long!")
     .required("Required!"),
-  number: Yup.string()
-    .min(3, "Too short!")
-    .max(50, "Too long!")
+  email: Yup.string()
+    .email("Please, write email address like aaa@aaa.aaa")
+    .required("Required!"),
+  password: Yup.string()
+    .min(6, "Too short!")
+    .max(20, "Too long!")
     .required("Required!"),
 });
 
-const ContactForm = () => {
+const RegistrationForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
+    dispatch(register(values));
     actions.resetForm();
   };
 
@@ -27,7 +30,8 @@ const ContactForm = () => {
     <Formik
       initialValues={{
         name: "",
-        number: "",
+        email: "",
+        password: "",
       }}
       onSubmit={handleSubmit}
       validationSchema={ContactSchema}
@@ -36,7 +40,7 @@ const ContactForm = () => {
         return (
           <Form className={css.form}>
             <div className={css.formGroup}>
-              <label className={css.formLabel}>Name</label>
+              <label className={css.formLabel}>Username</label>
               <Field className={css.formInput} type="text" name="name" />
               <ErrorMessage
                 className={css.errorMessage}
@@ -45,16 +49,25 @@ const ContactForm = () => {
               />
             </div>
             <div className={css.formGroup}>
-              <label className={css.formLabel}>Number</label>
-              <Field className={css.formInput} type="text" name="number" />
+              <label className={css.formLabel}>Email</label>
+              <Field className={css.formInput} type="text" name="email" />
               <ErrorMessage
                 className={css.errorMessage}
-                name="number"
+                name="email"
+                component="span"
+              />
+            </div>
+            <div className={css.formGroup}>
+              <label className={css.formLabel}>Password</label>
+              <Field className={css.formInput} type="text" name="password" />
+              <ErrorMessage
+                className={css.errorMessage}
+                name="password"
                 component="span"
               />
             </div>
             <button className={css.formBtn} type="submit">
-              Add contact
+              Sign Up
             </button>
           </Form>
         );
@@ -63,4 +76,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default RegistrationForm;
