@@ -1,13 +1,15 @@
-.filterTitle {
-    margin-bottom: 10px;
-    font-size: 26px;
-    font-weight: 600;
+.filterWrap {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.filterField {
-    margin-bottom: 20px;
-    width: 400px;
-    height: 40px;
-    border-radius: 5px;
-    font-size: 24px;
+.filterTitle {  
+  font-weight: 600;
+}
+
+.filterField {    
+  border-radius: 5px;
+  font-size: 24px;
 }

@@ -1,38 +1,61 @@
-.form {    
-    margin: 0 auto;
-    padding: 10px;
-    width: 400px;
-    height: 250px;
-    border: 1px solid black;
-    border-radius: 10px;
+.form {
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 4fr 4fr 1fr;
+  width: 100%;
+  border: 1px solid #0047ab;
+  border-radius: 4px;
 }
 
 .formGroup {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
 
+.groupWrap {
+  display: flex;
+  align-items: center;
 }
 
 .formLabel {
-    font-size: 24px;
-    font-weight: 500;
+  margin-right: 20px;
+  font-weight: 500;
 }
 
 .formInput {
-    width: 90%;
-    height: 30px;
-    font-size: 20px;
-    font-weight: 400;
+  width: 90%;
+  height: 30px;
+  font-weight: 400;
+  border-color: #5d8aa8;
 }
 
-.formBtn {
-    background-color: royalblue;
-    color: white;
+.errorMessage {
+  font-size: 12px;
+  color: red;
 }
 
-.formBtn:hover {
-    background-color: white;
-    color: royalblue;
+.addContactBtn {
+    justify-self: end;
+  align-self: center;
+  border-radius: 4px;
+  border: 1px solid #1560bd;
+  padding: 0.3em 0.6em;
+  width: 100px;
+  height: 30px;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: inherit;
+  cursor: pointer;
+  transition: color 0.25s;
+  transition: background-color 0.25s;
+}
+
+.addContactBtn:hover,
+.addContactBtn:focus {
+  background-color: #1560bd;
+  color: #f5f5f5;
 }

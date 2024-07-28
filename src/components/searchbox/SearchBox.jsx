@@ -12,11 +12,7 @@ const SearchBox = () => {
   };
 
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    }}>
+    <div className={css.filterWrap}>
       <p className={css.filterTitle}>Find contacts by name</p>
       <input
         className={css.filterField}

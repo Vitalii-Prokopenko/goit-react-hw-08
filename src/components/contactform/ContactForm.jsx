@@ -53,7 +53,7 @@ const ContactForm = () => {
                 component="span"
               />
             </div>
-            <button className={css.formBtn} type="submit">
+            <button className={css.addContactBtn} type="submit">
               Add contact
             </button>
           </Form>
