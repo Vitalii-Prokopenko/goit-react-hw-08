@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ContactForm from "../../components/ContactForm/ContactForm";
-import SearchBox from "../../components/SearchBox/SearchBox";
-import ContactList from "../../components/ContactList/ContactList";
-import Loader from "../../components/Loader/Loader";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import ContactForm from "../../components/contactform/ContactForm";
+import SearchBox from "../../components/searchbox/SearchBox";
+import ContactList from "../../components/contactlist/ContactList";
+import Loader from "../../components/loader/Loader";
+import ErrorMessage from "../../components/errormessage/ErrorMessage";
 import { deleteContact } from "../../redux/contacts/operations";
 import {
   selectIsLoading,
