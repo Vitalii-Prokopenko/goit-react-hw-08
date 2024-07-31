@@ -35,7 +35,7 @@
 
 .errorMessage {
   font-size: 12px;
-  color: red;
+  color: #FF7518;
 }
 
 .addContactBtn {
@@ -48,14 +48,13 @@
   height: 30px;
   font-weight: 500;
   font-family: inherit;
-  background-color: inherit;
-  cursor: pointer;
-  transition: color 0.25s;
+  background-color: #72A0C1; 
+  color: #f5f5f5; 
+  cursor: pointer;  
   transition: background-color 0.25s;
 }
 
 .addContactBtn:hover,
 .addContactBtn:focus {
-  background-color: #1560bd;
-  color: #f5f5f5;
+  background-color: #1560bd; 
 }

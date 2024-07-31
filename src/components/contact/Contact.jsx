@@ -7,10 +7,18 @@ const Contact = ({ contact, onDelete }) => {
   return (
     <li className={css.contactItem}>
       <div className={css.contactInfo}>
-        <p className={css.contactName}><TiUser style={{marginRight: 10}}/> {contact.name}</p>
-        <p className={css.contactNumber}><TiPhone style={{marginRight: 10}}/> {contact.number}</p>
+        <p className={css.contactName}>
+          <TiUser style={{ marginRight: 10 }} /> {contact.name}
+        </p>
+        <p className={css.contactNumber}>
+          <TiPhone style={{ marginRight: 10 }} /> {contact.number}
+        </p>
       </div>
-      <button type="button" className={css.contactBtn} onClick={() => onDelete(contact.id)}>
+      <button
+        type="button"
+        className={css.deleteBtn}
+        onClick={() => onDelete(contact.id)}
+      >
         Delete
       </button>
     </li>
@@ -20,10 +28,10 @@ const Contact = ({ contact, onDelete }) => {
 Contact.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
   }),
   onDelete: PropTypes.func.isRequired,
-}
+};
 
 export default Contact;

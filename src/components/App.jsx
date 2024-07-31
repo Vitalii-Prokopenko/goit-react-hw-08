@@ -20,13 +20,7 @@ const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
 
 function App() {
   const dispatch = useDispatch();
-  const { isRefreshing } = useSelector(selectIsRefreshing);
-
-  // const contacts = useSelector(selectFilteredContacts);
-  // const isLoading = useSelector(selectIsLoading);
-  // const error = useSelector(selectError);
-
-  // const dispatch = useDispatch();
+  const { isRefreshing } = useSelector(selectIsRefreshing);  
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -65,30 +59,6 @@ function App() {
           />
         </Routes>
       </Layout>
-
-      {/* <RegistrationForm /> */}
-      {/* <h1>Phonebook</h1>
-    <p>Number of contacts: {contacts.length}</p>
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        columnGap: "10px",
-        width: "100%",
-      }}
-    >
-      <ContactForm />
-      <div style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}>
-        <SearchBox />
-        {isLoading && <Loader />}
-        {error && <ErrorMessage />}
-        {contacts.length > 0 && <ContactList style={{ width: "100%" }} />}
-      </div>
-    </div> */}
     </div>
   );
 }

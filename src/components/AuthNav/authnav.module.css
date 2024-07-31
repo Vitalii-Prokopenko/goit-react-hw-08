@@ -7,11 +7,11 @@
   }
   
   .link.active {
-    color: #1560BD;
+    color: #FF7518;
   }
   
   .link:hover,
   .link:focus {
-    color: #1560bd;
+    color: #FF7518;
   }
   

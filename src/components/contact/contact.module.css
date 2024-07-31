@@ -1,42 +1,60 @@
 .contactItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;        
-    border: 1px solid black;
-    border-radius: 8px;
-}
-
-.contactName {
-    margin-right: 20px;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 26px;
-    font-weight: 700;
-}
-
-.contactNumber {
-    margin-bottom: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 400;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  padding-left: 20px;
+  border: 1px solid #1560bd;
+  border-radius: 8px;
 }
 
 .contactInfo {
-    margin-right: 30px;
-    display: flex;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.contactBtn {
-    background-color: crimson;
-    color: white;
+.contactName {
+  margin-right: 20px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.contactBtn:hover {
-    background-color: white;
-    color: crimson;
+.contactNumber {
+  margin-bottom: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
 }
+
+.deleteBtn {
+  align-self: center;
+  border-radius: 4px;
+  padding: 0.3em 0.6em;
+  width: 100px;
+  height: 30px;
+  font-weight: 500;
+  font-family: inherit;
+  color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.deleteBtn {
+  border: 1px solid #c04000;
+  background-color: #ff7518;
+}
+
+.deleteBtn:hover,
+.deleteBtn:focus {
+  background-color: #c04000;
+}
+

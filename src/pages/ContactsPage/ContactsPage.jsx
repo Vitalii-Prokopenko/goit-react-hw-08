@@ -5,6 +5,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import ContactList from "../../components/ContactList/ContactList";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import { deleteContact } from "../../redux/contacts/operations";
 import {
   selectIsLoading,
   selectError,
@@ -19,6 +20,10 @@ const ContactsPage = () => {
   const error = useSelector(selectError);
   const contacts = useSelector(selectContacts);
 
+  const handleDelete = (id) => {
+    dispatch(deleteContact(id));
+  };
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -29,7 +34,9 @@ const ContactsPage = () => {
       <SearchBox />
       {isLoading && <Loader />}
       {error && <ErrorMessage />}
-      {contacts.length > 0 && <ContactList style={{ width: "100%" }} />}
+      {contacts.length > 0 && (
+        <ContactList handleDelete={handleDelete} style={{ width: "100%" }} />
+      )}
     </div>
   );
 };
