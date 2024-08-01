@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://connections-api.goit.global/";
+// axios.defaults.baseURL = "https://connections-api.goit.global/";
 
 // Utility to add JWT
 const setAuthHeader = (token) => {
@@ -17,7 +17,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      const response = await axios.post("/users/signup", credentials);
+      const response = await axios.post("https://connections-api.goit.global/users/signup", credentials);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(response.data.token);
       // console.log(response.data)
@@ -32,10 +32,10 @@ export const login = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {
     try {
-      const response = await axios.post("/users/login", credentials);
+      const response = await axios.post("https://connections-api.goit.global/users/login", credentials);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(response.data.token);
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -45,7 +45,7 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    await axios.post("/users/logout");
+    await axios.post("https://connections-api.goit.global/users/logout");
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
